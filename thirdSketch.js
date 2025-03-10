@@ -173,7 +173,7 @@ function showImage() {
     imageContainer.style.left = '50%';
     imageContainer.style.transform = 'translate(-50%, -50%)'; 
 
-    // Resize and process ithacaImage
+    
     originalImage.resize(600, 0);
     ithacaImage = originalImage.get();
     ithacaImage.resize(600, 0);
