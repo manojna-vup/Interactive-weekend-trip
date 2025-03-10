@@ -1,0 +1,173 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 460;
+  background-color: #ebe9e1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
+  color: #e43d12;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phrase {
+  position: absolute;
+  font-size: 18px;
+  padding: 10px;
+  color: #e43d12;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+#phrase1 {
+  z-index: 10;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1; /* Make sure it's visible initially */
+  color: #e43d12;
+}
+
+#phrase2, #phrase3, #phrase4, #phrase5, #phrase6, #phrase7, #phrase8, #phrase9, #phrase10 {
+  opacity: 0; 
+}
+
+#phrase5 {
+  cursor: grab;
+}
+
+#phrase6, #phrase7, #phrase8 {
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+
+.message-bubble-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: 380;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.sent {
+  background-color: #d7cd62;
+  color: #4d6c40;
+  align-self: flex-end;
+  position: relative;
+}
+
+.received {
+  background-color: #4d6c40;
+  color: #d7cd62;
+  align-self: flex-start;
+  position: relative;
+}
+
+.message:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  
+}
+
+.sent:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: -8px;
+  height: 20px;
+  width: 20px;
+  background: #d7cd62;
+  border-bottom-left-radius: 15px;
+}
+
+.sent:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  height: 20px;
+  background: #bcd7ea;
+  border-bottom-left-radius: 10px;
+}
+
+/* Received Message Tail */
+.received:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: -10px;  /* Ensuring the triangle tail is positioned consistently */
+  height: 20px;  /* Same height as sent message tail */
+  width: 20px;
+  background: #4d6c40;
+  border-bottom-right-radius: 15px;
+}
+
+.received:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -10px;  /* Adjust the left position slightly */
+  width: 10px;
+  height: 20px;
+  background: #bcd7ea;
+  border-bottom-right-radius: 10px;
+}
+
+.received, .sent {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.8s ease-in-out; /* Smooth fade-in effect */
+}
+
+.show {
+  opacity: 1 !important;
+}
+
+.moving {
+  transition: transform 1s ease-in-out;
+}
+
+.dragging {
+  z-index: 100;
+}
