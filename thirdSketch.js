@@ -211,7 +211,7 @@ function triggerPhrase11() {
   let phrase11 = document.getElementById('phrase11');
   phrase11.style.opacity = 1;
   phrase11.style.top = '80%';
-  phrase11.style.left = '32.5%';
+  phrase11.style.left = '32%';
   phrase11.style.position = 'absolute';
   phrase11.style.color = '#ebe9e1';
 }
